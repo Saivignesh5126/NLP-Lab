@@ -1,0 +1,38 @@
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+
+# Download required resources
+nltk.download(&#39;punkt&#39;)
+nltk.download(&#39;punkt_tab&#39;)
+nltk.download(&#39;averaged_perceptron_tagger_eng&#39;)
+
+# Get input from user
+text = input(&quot;Enter a sentence: &quot;)
+
+# Tokenize sentence
+tokens = word_tokenize(text)
+
+# Perform POS tagging
+tagged_words = pos_tag(tokens)
+# Display tokens
+
+print(&quot;\nTokens:&quot;)
+print(tokens)
+
+# Display POS tags
+print(&quot;\nPOS Tags:&quot;)
+for word, tag in tagged_words:
+    print(word, &quot;-&gt;&quot;, tag)
+
+# Simple tag meanings
+print(&quot;\nTag Meanings:&quot;)
+print(&quot;NN  -&gt; Noun&quot;)
+print(&quot;VB  -&gt; Verb&quot;)
+print(&quot;JJ  -&gt; Adjective&quot;)
+print(&quot;RB  -&gt; Adverb&quot;)
+print(&quot;PRP -&gt; Pronoun&quot;)
+print(&quot;DT  -&gt; Determiner&quot;)
+
+# Count tagged words
+print(&quot;\nTotal Words:&quot;, len(tokens))
